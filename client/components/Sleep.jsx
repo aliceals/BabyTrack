@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { addSleep } from '../actions'
 import ms from 'pretty-ms'
 
 export class Sleep extends React.Component {
@@ -12,7 +13,7 @@ export class Sleep extends React.Component {
         this.state = {
             time: 0,
             isOn: false,
-            start: 0
+            start: 0,
         }
     }
 
@@ -28,22 +29,26 @@ export class Sleep extends React.Component {
     }
 
     stopTimer = () => {
-        this.setState({ isOn: false })
+        this.setState({ isOn: false, finished: true })
         clearInterval(this.timer)
     }
 
     resetTimer = () => {
         this.setState({ time: 0, isOn: false, start: 0 })
-        console.log(this.state)
+    }
+
+    submitTime = () => {
+        //dispatch this.state.time  
+        this.props.dispatch(addSleep(this.state.time))
+
     }
 
     render() {
-        console.log(this.state)
         let start = (this.state.start == 0) ? <button type="button" className="btn btn-dark" onClick={this.startTimer}>start</button> : null
         let stop = (this.state.time == 0 || !this.state.isOn) ? null : <button type="button" className="btn btn-danger" onClick={this.stopTimer}>stop</button>
         let resume = (this.state.time == 0 || this.state.isOn) ? null : <button type="button" className="btn btn-success" onClick={this.startTimer}>resume</button>
         let reset = (this.state.time == 0 || this.state.isOn) ? null : <button type="button" className="btn btn-success" onClick={this.resetTimer}>reset</button>
-
+        let submit = (this.state.time == 0 || this.state.isOn) ? null : <button type="button" className="btn btn-success" onClick={this.submitTime}>Submit</button>
 
 
         return (
@@ -54,6 +59,7 @@ export class Sleep extends React.Component {
                 {stop}
                 {resume}
                 {reset}
+                {submit}
             </div>
 
         )
@@ -63,4 +69,4 @@ export class Sleep extends React.Component {
 
 
 
-export default Sleep
+export default connect()(Sleep)
