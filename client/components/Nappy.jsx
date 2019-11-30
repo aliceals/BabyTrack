@@ -33,13 +33,24 @@ export class Poo extends React.Component {
                     <button type="button" value="wee" className="btn btn-warning" onClick={this.handleChange}>Wee</button>
                     <button type="button" value="both" className="btn btn-info" onClick={this.handleChange}>Both</button>
                     <button type="button" className="btn btn-success" onClick={this.handleSubmit}>Submit</button>
-                </div >
+
+                    <h4>Past nappies</h4>
+                    <ul>
+                        {this.props.nappy ? this.props.nappy.map((nappy, i) => {
+                            return <li key={i}>{nappy.type} {nappy.time}</li>
+                        }) : null}
+                    </ul>
+                </div>
             </>
         )
     }
 }
 
 
+function mapStateToProps(reduxState) {
+    return {
+        nappy: reduxState.nappy
+    }
+}
 
-
-export default connect()(Poo)
+export default connect(mapStateToProps)(Poo)
