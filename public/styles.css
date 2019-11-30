@@ -1,0 +1,33 @@
+
+.eat {
+    position: relative;
+    flex-direction: column;
+    display: flex; 
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25em;
+ }
+
+ .poo {
+    position: relative;
+    display: flex; 
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25em;
+ }
+
+ .sleep {
+    position: relative;
+    display: flex; 
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25em;
+ }
+
+ .container{
+     display: flex;
+ }
+
+ .container > div {
+     margin: 20px;
+     padding: 20px;
+ }

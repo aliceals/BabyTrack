@@ -9,9 +9,9 @@ export function apiGetEats() {
 
 export function apiAddEat(eat) {
     return request.post(endPoint)
-        .then({
-            amount: eat.amount,
-            measurement: eat.measurement
+        .send({
+            amount: eat,
+            measurement: "mls"
         })
         .then(res => res.body)
 }
