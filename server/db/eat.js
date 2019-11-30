@@ -2,6 +2,7 @@ const database = require('./connection')
 
 
 function getEats(db = database) {
+    console.log(new Date())
     return db('eat').select()
 }
 

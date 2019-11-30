@@ -1,13 +1,13 @@
 const express = require('express')
 const router = express.Router()
 
-const db = require('../db/eat')
+const db = require('../db/nappy')
 
 
 router.get('/', (req, res) => {
-    db.getEats()
-        .then(eat => {
-            res.json(eat)
+    db.getNappies()
+        .then(nappy => {
+            res.json(nappy)
         })
         .catch(err => {
             console.log(err)
@@ -17,8 +17,8 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-    const eat = req.body
-    db.createEat(eat)
+    const nappy = req.body
+    db.createNappy(nappy)
         .then(id => {
             res.json({ id: id })
         })

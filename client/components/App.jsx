@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import Eat from './Eat'
 import Sleep from './Sleep'
-import Poo from './Poo'
+import Nappy from './Nappy'
 
 export class App extends React.Component {
     componentDidMount() {
@@ -24,7 +24,7 @@ export class App extends React.Component {
                 <div className="container">
                     <Eat />
                     <Sleep />
-                    <Poo />
+                    <Nappy />
                 </div>
             </React.Fragment>
         )
