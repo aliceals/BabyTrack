@@ -44,6 +44,8 @@ export class Eat extends React.Component {
                     <button type="submit" className="btn btn-primary">Add</button>
                 </form>
 
+                <h4>Past feeds</h4>
+
                 <ul> {this.props.eat ? this.props.eat.map((eat, i) => {
                     return < li key={i}> Ate {eat.amount} {eat.measurement} at {eat.created_at}</li>
 
