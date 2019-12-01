@@ -1,6 +1,7 @@
 import React from 'react'
 import { addEat } from '../actions'
 import { connect } from 'react-redux'
+import { moment } from 'moment'
 
 export class Eat extends React.Component {
     constructor(props) {
@@ -29,6 +30,7 @@ export class Eat extends React.Component {
 
 
     render() {
+
         return (
             <div className="eat">
                 <div className="newEat">
@@ -51,11 +53,8 @@ export class Eat extends React.Component {
                 <h4>Past feeds</h4>
 
                 <ul> {this.props.eat ? this.props.eat.map((eat, i) => {
-                    return < li key={i}> Ate {eat.amount} {eat.measurement} at {eat.created_at}</li>
-
-
+                    return < li key={i}> Ate {eat.amount} {eat.measurement} at {eat.created_at.slice(11, 16)} </li>
                 })
-
                     : null
                 }</ul>
             </div >

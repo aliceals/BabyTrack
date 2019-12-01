@@ -44,7 +44,7 @@ export class Nappy extends React.Component {
                         <h4>Past nappies</h4>
                         <ul>
                             {this.props.nappy ? this.props.nappy.map((nappy, i) => {
-                                return <li key={i}>{nappy.type} {nappy.time}</li>
+                                return <li key={i}>{nappy.type} at {nappy.time.slice(11, 16)}</li>
                             }) : null}
                         </ul>
                     </div>

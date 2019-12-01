@@ -70,7 +70,7 @@ export class Sleep extends React.Component {
                 <div className="pastSleep">
                     <h4>Past sleeps</h4>
                     <ul>{this.props.sleep ? this.props.sleep.map((sleep, i) => {
-                        return <li key={i}>Slept {sleep.duration} woke at {sleep.time_started}</li>
+                        return <li key={i}>Slept {sleep.duration} woke at {sleep.time_started.slice(11, 16)}</li>
                     }) : null} </ul>
                 </div>
             </div>
