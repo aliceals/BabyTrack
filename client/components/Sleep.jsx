@@ -36,6 +36,9 @@ export class Sleep extends React.Component {
 
     submitTime = () => {
         this.props.dispatch(addSleep(this.state.time))
+        this.setState({
+            time: 0, start: 0
+        })
 
     }
 

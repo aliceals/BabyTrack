@@ -22,6 +22,9 @@ export class Poo extends React.Component {
         if (this.state.type) {
             this.props.dispatch(addNappy(this.state))
         }
+        this.setState({
+            type: ""
+        })
     }
 
     render() {
