@@ -53,8 +53,11 @@ export class Sleep extends React.Component {
         return (
             <div className="sleep">
                 <div className="newSleep">
-                    <h3>This is how your baby has slept</h3>
-                    {ms(this.state.time)}
+                    <h3>Sleep 😴 </h3>
+
+                </div>
+                <div className="timer">
+                    <p>{ms(this.state.time)}</p>
                 </div>
                 <div className="sleepButtons">
                     {start}

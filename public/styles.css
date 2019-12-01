@@ -5,14 +5,16 @@
     display: flex; 
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25em;
+    width: 33%
  }
 
- .poo {
+ .nappy {
     position: relative;
     display: flex; 
     flex-direction: column;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25em;
+    width: 33%
  }
 
  .sleep {
@@ -21,6 +23,7 @@
     flex-direction: column;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25em;
+    width: 33%
  }
 
  .container{
@@ -67,6 +70,43 @@
 
  .sleepButtons {
      margin:auto;
-     margin-bottom: 40px;
+     margin-bottom: 30px;
+     margin-top: 28px;
   
+ }
+
+ .timer {
+     margin-top: 40px;
+     font-family: 'Orbitron', sans-serif;
+     font-size: 40px;
+     margin: auto;
+     background-color: #F9EEEC;
+     min-width: 200px;
+     text-align: center;
+
+ }
+
+ .submit button{
+     width: 100%;
+     margin-bottom: 40px
+ }
+
+ .nappyNew button{
+     width: 30%;
+     margin-top: 20px;
+     margin-left: 5px;
+     margin-bottom: 20px;
+ }
+
+ .nappyNew {
+     margin-top: 20px;
+     
+ }
+
+.nappyNew h3 {
+    margin:auto;
+}
+
+ .eat {
+     width: 33%
  }

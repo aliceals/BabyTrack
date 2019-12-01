@@ -31,7 +31,7 @@ export class Eat extends React.Component {
     render() {
         return (
             <div className="eat">
-                <h3>This is what your baby has eaten</h3>
+                <h3> Eat 🍼</h3>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="amount">Amount</label>

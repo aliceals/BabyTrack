@@ -30,19 +30,24 @@ export class Poo extends React.Component {
     render() {
         return (
             <>
-                <div className="poo">
-                    <h3>This is your babies bowel movements</h3>
-                    <button type="button" value="poo" className="btn btn-primary" onClick={this.handleChange}>Poo</button>
-                    <button type="button" value="wee" className="btn btn-warning" onClick={this.handleChange}>Wee</button>
-                    <button type="button" value="both" className="btn btn-info" onClick={this.handleChange}>Both</button>
-                    <button type="button" className="btn btn-success" onClick={this.handleSubmit}>Submit</button>
-
-                    <h4>Past nappies</h4>
-                    <ul>
-                        {this.props.nappy ? this.props.nappy.map((nappy, i) => {
-                            return <li key={i}>{nappy.type} {nappy.time}</li>
-                        }) : null}
-                    </ul>
+                <div className="nappy">
+                    <div className="nappyNew">
+                        <h3>Nappy 💩</h3>
+                        <button type="button" value="poo" className="btn btn-primary" onClick={this.handleChange}>Poo</button>
+                        <button type="button" value="wee" className="btn btn-warning" onClick={this.handleChange}>Wee</button>
+                        <button type="button" value="both" className="btn btn-info" onClick={this.handleChange}>Both</button>
+                    </div>
+                    <div className="submit">
+                        <button type="button" className="btn btn-success" onClick={this.handleSubmit}>Submit</button>
+                    </div>
+                    <div className="nappyPast">
+                        <h4>Past nappies</h4>
+                        <ul>
+                            {this.props.nappy ? this.props.nappy.map((nappy, i) => {
+                                return <li key={i}>{nappy.type} {nappy.time}</li>
+                            }) : null}
+                        </ul>
+                    </div>
                 </div>
             </>
         )
