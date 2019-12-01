@@ -52,17 +52,24 @@ export class Sleep extends React.Component {
 
         return (
             <div className="sleep">
-                <h3>This is how your baby has slept</h3>
-                {ms(this.state.time)}
-                {start}
-                {stop}
-                {resume}
-                {reset}
-                {submit}
-                <h4>Past sleeps</h4>
-                <ul>{this.props.sleep ? this.props.sleep.map((sleep, i) => {
-                    return <li key={i}>Slept {sleep.duration}</li>
-                }) : null} </ul>
+                <div className="newSleep">
+                    <h3>This is how your baby has slept</h3>
+                    {ms(this.state.time)}
+                </div>
+                <div className="sleepButtons">
+                    {start}
+                    {stop}
+                    {resume}
+                    {reset}
+                    {submit}
+
+                </div>
+                <div className="pastSleep">
+                    <h4>Past sleeps</h4>
+                    <ul>{this.props.sleep ? this.props.sleep.map((sleep, i) => {
+                        return <li key={i}>Slept {sleep.duration} woke at {sleep.time_started}</li>
+                    }) : null} </ul>
+                </div>
             </div>
 
         )

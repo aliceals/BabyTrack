@@ -31,3 +31,42 @@
      margin: 20px;
      padding: 20px;
  }
+
+ .mainImage {
+     position: relative;
+     float: right;
+     display:flex;
+     margin-left: auto;
+     height: 15%;
+     width: 15%;
+     
+
+ }
+
+ .jumbotron {
+     display:flex;
+     background-color: aquamarine;
+ }
+
+ .summary {
+     display: block;
+     
+ }
+
+ .display-4 {
+     display:block;
+ }
+
+ .containerforJumbo {
+     display:block;
+ }
+
+ .newSleep {
+     margin: auto;
+ }
+
+ .sleepButtons {
+     margin:auto;
+     margin-bottom: 40px;
+  
+ }

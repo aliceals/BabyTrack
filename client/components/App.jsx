@@ -20,7 +20,11 @@ export class App extends React.Component {
             <React.Fragment>
                 <div className="container-fluid">
                     <div className='jumbotron'>
-                        <h1 className="display-4">Baby Tracker</h1>
+                        <div className="containerforJumbo">
+                            <h1 className="display-4">Baby Tracker</h1>
+                            <p className="summary">Record your babies sleep, nappies and eating habits</p>
+                        </div>
+                        <img className="mainImage" src="/images/baby2.png" />
                     </div>
                 </div>
                 <div className="container">
