@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addNappy } from '../actions'
 
-export class Poo extends React.Component {
+export class Nappy extends React.Component {
     constructor(props) {
         super(props)
 
@@ -33,9 +33,9 @@ export class Poo extends React.Component {
                 <div className="nappy">
                     <div className="nappyNew">
                         <h3>Nappy 💩</h3>
-                        <button type="button" value="poo" className="btn btn-primary" onClick={this.handleChange}>Poo</button>
-                        <button type="button" value="wee" className="btn btn-warning" onClick={this.handleChange}>Wee</button>
-                        <button type="button" value="both" className="btn btn-info" onClick={this.handleChange}>Both</button>
+                        <button type="button" value="Poo" className="btn btn-primary" onClick={this.handleChange}>Poo</button>
+                        <button type="button" value="Wee" className="btn btn-warning" onClick={this.handleChange}>Wee</button>
+                        <button type="button" value="Both" className="btn btn-info" onClick={this.handleChange}>Both</button>
                     </div>
                     <div className="submit">
                         <button type="button" className="btn btn-success" onClick={this.handleSubmit}>Submit</button>
@@ -61,4 +61,4 @@ function mapStateToProps(reduxState) {
     }
 }
 
-export default connect(mapStateToProps)(Poo)
+export default connect(mapStateToProps)(Nappy)

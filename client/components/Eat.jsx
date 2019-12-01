@@ -31,18 +31,20 @@ export class Eat extends React.Component {
     render() {
         return (
             <div className="eat">
-                <h3> Eat 🍼</h3>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="amount">Amount</label>
-                        <input type="number" className="form-control" name="amount" onChange={this.handleChange} value={this.state.amount} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="measurement">Measurement</label>
-                        <input type="text" className="form-control" name="measurement" onChange={this.handleChange} value={this.state.measurement} />
-                    </div>
-                    <button type="submit" className="btn btn-primary">Add</button>
-                </form>
+                <div className="newEat">
+                    <h3> Eat 🍼</h3>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="amount">Amount</label>
+                            <input type="number" className="form-control" name="amount" onChange={this.handleChange} value={this.state.amount} />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="measurement">Measurement</label>
+                            <input type="text" className="form-control" name="measurement" onChange={this.handleChange} value={this.state.measurement} />
+                        </div>
+                        <button type="submit" className="btn btn-primary">Add</button>
+                    </form>
+                </div>
 
                 <h4>Past feeds</h4>
 

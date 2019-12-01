@@ -42,8 +42,6 @@
      margin-left: auto;
      height: 15%;
      width: 15%;
-     
-
  }
 
  .jumbotron {
@@ -53,7 +51,6 @@
 
  .summary {
      display: block;
-     
  }
 
  .display-4 {
@@ -76,10 +73,10 @@
  }
 
  .timer {
-     margin-top: 40px;
      font-family: 'Orbitron', sans-serif;
      font-size: 40px;
      margin: auto;
+     margin-top: 20px;
      background-color: #F9EEEC;
      min-width: 200px;
      text-align: center;
@@ -99,14 +96,14 @@
  }
 
  .nappyNew {
-     margin-top: 20px;
+     text-align: center;
      
  }
 
-.nappyNew h3 {
-    margin:auto;
-}
-
  .eat {
      width: 33%
+ }
+ 
+ .newEat h3 {
+     text-align: center;
  }
