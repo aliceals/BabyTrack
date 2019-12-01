@@ -42,7 +42,9 @@ export class Eat extends React.Component {
                             <label htmlFor="measurement">Measurement</label>
                             <input type="text" className="form-control" name="measurement" onChange={this.handleChange} value={this.state.measurement} />
                         </div>
-                        <button type="submit" className="btn btn-primary">Add</button>
+                        <div className="submitEat">
+                            <button type="submit" className="btn btn-primary">Add</button>
+                        </div>
                     </form>
                 </div>
 
