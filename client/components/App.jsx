@@ -1,5 +1,5 @@
 import React from 'react'
-import { fetchEats, fetchNappies } from '../actions'
+import { fetchEats, fetchNappies, fetchSleeps } from '../actions'
 
 import { connect } from 'react-redux'
 
@@ -11,6 +11,7 @@ export class App extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchEats())
         this.props.dispatch(fetchNappies())
+        this.props.dispatch(fetchSleeps())
     }
 
 

@@ -7,9 +7,6 @@ export class Sleep extends React.Component {
     constructor(props) {
         super(props)
 
-        let today = new Date()
-        let time = today.toLocaleTimeString()
-
         this.state = {
             time: 0,
             isOn: false,
@@ -38,16 +35,15 @@ export class Sleep extends React.Component {
     }
 
     submitTime = () => {
-        //dispatch this.state.time  
         this.props.dispatch(addSleep(this.state.time))
 
     }
 
     render() {
-        let start = (this.state.start == 0) ? <button type="button" className="btn btn-dark" onClick={this.startTimer}>start</button> : null
-        let stop = (this.state.time == 0 || !this.state.isOn) ? null : <button type="button" className="btn btn-danger" onClick={this.stopTimer}>stop</button>
-        let resume = (this.state.time == 0 || this.state.isOn) ? null : <button type="button" className="btn btn-success" onClick={this.startTimer}>resume</button>
-        let reset = (this.state.time == 0 || this.state.isOn) ? null : <button type="button" className="btn btn-success" onClick={this.resetTimer}>reset</button>
+        let start = (this.state.start == 0) ? <button type="button" className="btn btn-dark" onClick={this.startTimer}>Start</button> : null
+        let stop = (this.state.time == 0 || !this.state.isOn) ? null : <button type="button" className="btn btn-danger" onClick={this.stopTimer}>Stop</button>
+        let resume = (this.state.time == 0 || this.state.isOn) ? null : <button type="button" className="btn btn-success" onClick={this.startTimer}>Resume</button>
+        let reset = (this.state.time == 0 || this.state.isOn) ? null : <button type="button" className="btn btn-success" onClick={this.resetTimer}>Reset</button>
         let submit = (this.state.time == 0 || this.state.isOn) ? null : <button type="button" className="btn btn-success" onClick={this.submitTime}>Submit</button>
 
 
@@ -60,13 +56,21 @@ export class Sleep extends React.Component {
                 {resume}
                 {reset}
                 {submit}
+                <h4>Past sleeps</h4>
+                <ul>{this.props.sleep ? this.props.sleep.map((sleep, i) => {
+                    return <li key={i}>Slept {sleep.duration}</li>
+                }) : null} </ul>
             </div>
 
         )
     }
 }
 
+function mapStateToProps(reduxState) {
+    return {
+        sleep: reduxState.sleep
+    }
+}
 
 
-
-export default connect()(Sleep)
+export default connect(mapStateToProps)(Sleep)
