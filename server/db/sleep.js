@@ -6,7 +6,6 @@ function getSleeps(db = database) {
 }
 
 function createSleep(sleep, db = database) {
-    console.log(sleep)
     return db('sleep').insert(sleep)
         .then(ids => {
             return ids[0]

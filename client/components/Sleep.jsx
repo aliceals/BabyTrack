@@ -12,7 +12,10 @@ export class Sleep extends React.Component {
             time: 0,
             isOn: false,
             start: 0,
+            endTime: 0
         }
+
+        console.log(moment(Date.now()).format('YYYY-MM-DD, h:mm:ss a'))
     }
 
     startTimer = () => {
@@ -37,7 +40,11 @@ export class Sleep extends React.Component {
 
     submitTime = () => {
         let time = ms(this.state.time)
-        this.props.dispatch(addSleep(time))
+        let timeDetails = {
+            duration: time,
+            time_started: moment(Date.now()).format('YYYY-MM-DD, h:mm:ss a')
+        }
+        this.props.dispatch(addSleep(timeDetails))
         this.setState({
             time: 0, start: 0
         })
@@ -75,7 +82,7 @@ export class Sleep extends React.Component {
 
                 </div>
                 <div className="pastSleep">
-                    <h4>Past sleeps</h4>
+                    <h4>Sleeps today</h4>
                     <ul>{this.props.sleep ? this.props.sleep.map((sleep, i) => {
                         if (sleep.time_started.slice(0, 10) == moment(Date.now()).format('YYYY-MM-DD'))
                             return <li key={i}>Slept {sleep.duration} woke at {sleep.time_started.slice(11, 16)}  <button value={sleep.sleep_id} onClick={this.handleDelete} className="btn-secondary">x</button></li>
