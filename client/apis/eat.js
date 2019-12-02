@@ -11,7 +11,8 @@ export function apiAddEat(eat) {
     return request.post(endPoint)
         .send({
             amount: eat.amount,
-            measurement: eat.measurement
+            measurement: eat.measurement,
+            created_at: eat.dateTime
         })
         .then(res => res.body)
 }

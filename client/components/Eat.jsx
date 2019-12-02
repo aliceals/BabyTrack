@@ -9,13 +9,17 @@ export class Eat extends React.Component {
 
         this.state = {
             amount: '',
-            measurement: 'mls'
+            measurement: 'mls',
+            dateTime: ''
         }
     }
 
+
     handleChange = (e) => {
+        console.log(new Date())
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            date: new Date()
         })
     }
 
@@ -26,10 +30,12 @@ export class Eat extends React.Component {
             this.props.dispatch(addEat(this.state))
             this.setState({ amount: '', measurement: 'mls' })
         }
+
     }
 
 
     render() {
+
 
         return (
             <div className="eat">
@@ -53,12 +59,13 @@ export class Eat extends React.Component {
                 <h4>Past feeds</h4>
 
                 <ul> {this.props.eat ? this.props.eat.map((eat, i) => {
-                    return < li key={i}> Ate {eat.amount} {eat.measurement} at {eat.created_at.slice(11, 16)} </li>
+                    if (eat.created_at.slice(0, 10) == new Date().toISOString().slice(0, 10)) {
+                        return < li key={i}> Ate {eat.amount} {eat.measurement} at {eat.created_at.slice(11, 16)}  </li>
+                    }
                 })
                     : null
                 }</ul>
             </div >
-
         )
     }
 }

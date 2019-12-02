@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addSleep } from '../actions'
 import ms from 'pretty-ms'
+import moment from 'moment'
 
 export class Sleep extends React.Component {
     constructor(props) {
@@ -71,8 +72,9 @@ export class Sleep extends React.Component {
                 <div className="pastSleep">
                     <h4>Past sleeps</h4>
                     <ul>{this.props.sleep ? this.props.sleep.map((sleep, i) => {
-                        return <li key={i}>Slept {sleep.duration} woke at {sleep.time_started.slice(11, 16)}</li>
-                    }) : null} </ul>
+                        return <li key={i}>Slept {sleep.duration} woke at {sleep.time_started.slice(11, 16)} {sleep.time_started.slice(0, 10)} {moment(Date.now()).format('YYYY-MM-DD')}</li>
+                    }
+                    ) : null} </ul>
                 </div>
             </div>
 

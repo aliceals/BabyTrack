@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
-
 const db = require('../db/eat')
+
+
 
 
 router.get('/', (req, res) => {
@@ -18,7 +19,16 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const eat = req.body
-    db.createEat(eat)
+    let time = new Date().toISOString()
+
+    const newEat = {
+        amount: req.body.amount,
+        measurement: req.body.measurement,
+        created_at: time
+    }
+
+
+    db.createEat(newEat)
         .then(id => {
             res.json({ id: id })
         })
