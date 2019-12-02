@@ -1,5 +1,5 @@
 import React from 'react'
-import { addEat } from '../actions'
+import { addEat, deleteEat } from '../actions'
 import { connect } from 'react-redux'
 import { moment } from 'moment'
 
@@ -33,6 +33,10 @@ export class Eat extends React.Component {
 
     }
 
+    handleDelete = (e) => {
+        console.log(e.target.value)
+        this.props.dispatch(deleteEat(e.target.value))
+    }
 
     render() {
 
@@ -56,11 +60,11 @@ export class Eat extends React.Component {
                     </form>
                 </div>
 
-                <h4>Past feeds</h4>
+                <h4>Feeds today</h4>
 
                 <ul> {this.props.eat ? this.props.eat.map((eat, i) => {
                     if (eat.created_at.slice(0, 10) == new Date().toISOString().slice(0, 10)) {
-                        return < li key={i}> Ate {eat.amount} {eat.measurement} at {eat.created_at.slice(11, 16)}  </li>
+                        return < li key={i}> Ate {eat.amount} {eat.measurement} at {eat.created_at.slice(11, 16)} <button value={eat.eat_id} onClick={this.handleDelete} className="btn-secondary">x</button> </li>
                     }
                 })
                     : null

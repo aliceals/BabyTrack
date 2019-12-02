@@ -16,3 +16,9 @@ export function apiAddEat(eat) {
         })
         .then(res => res.body)
 }
+
+export function apiDeleteEats(eatId) {
+    return request.post('/api/v1/eat/delete')
+        .send({ eatId: eatId })
+        .then(res => res.body)
+}

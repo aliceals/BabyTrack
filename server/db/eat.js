@@ -12,7 +12,12 @@ function createEat(eat, db = database) {
         })
 }
 
+function deleteEat(eatId, db = database) {
+    return db('eat').where('eat_id', eatId).del()
+}
+
 module.exports = {
     createEat,
-    getEats
+    getEats,
+    deleteEat
 }

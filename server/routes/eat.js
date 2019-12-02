@@ -27,7 +27,6 @@ router.post('/', (req, res) => {
         created_at: time
     }
 
-
     db.createEat(newEat)
         .then(id => {
             res.json({ id: id })
@@ -38,4 +37,15 @@ router.post('/', (req, res) => {
         })
 })
 
+
+router.post('/delete', (req, res) => {
+    db.deleteEat(req.body.eatId)
+        .then(id => {
+            res.json({ id: id })
+        })
+        .catch(err => {
+            console.error(err)
+            res.status(500).json({ message: 'Something is broken' })
+        })
+})
 module.exports = router
