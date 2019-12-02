@@ -67,8 +67,8 @@ export class Sleep extends React.Component {
             <div className="sleep">
                 <div className="newSleep">
                     <h3>Sleep 😴 </h3>
-
                 </div>
+
                 <div className="timer">
                     <p>{ms(this.state.time)}</p>
                 </div>
@@ -78,7 +78,6 @@ export class Sleep extends React.Component {
                     {resume}
                     {reset}
                     {submit}
-
                 </div>
                 <div className="pastSleep">
                     <h4>Sleeps today</h4>

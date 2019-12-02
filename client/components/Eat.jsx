@@ -67,7 +67,7 @@ export class Eat extends React.Component {
                 <h4>Feeds today</h4>
 
                 <ul> {this.props.eat ? this.props.eat.map((eat, i) => {
-                    if (eat.created_at.slice(0, 10) == new Date().toISOString().slice(0, 10)) {
+                    if (eat.created_at.slice(0, 10) == moment(Date.now()).format('YYYY-MM-DD')) {
                         return < li key={i}> Ate {eat.amount} {eat.measurement} at {eat.created_at.slice(11, 16)} <button value={eat.eat_id} onClick={this.handleDelete} className="btn-secondary">x</button> </li>
                     }
                 })

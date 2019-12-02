@@ -3,7 +3,6 @@ import request from 'superagent'
 const endPoint = '/api/v1/sleep'
 
 export function apiAddSleep(sleep) {
-    console.log(sleep)
     return request.post(endPoint)
         .send({
             duration: sleep.duration,
