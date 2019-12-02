@@ -16,3 +16,9 @@ export function apiGetSleeps() {
         .then(res => res.body)
 }
 
+
+export function apiDeleteSleeps(sleepId) {
+    return request.post('/api/v1/sleep/delete')
+        .send({ sleepId: sleepId })
+        .then(res => res.body)
+}

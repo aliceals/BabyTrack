@@ -13,7 +13,12 @@ function createSleep(sleep, db = database) {
         })
 }
 
+function deleteSleeps(sleepId, db = database) {
+    return db('sleep').where('sleep_id', sleepId).del()
+}
+
 module.exports = {
     createSleep,
-    getSleeps
+    getSleeps,
+    deleteSleeps
 }

@@ -4,7 +4,7 @@ exports.up = function (knex) {
         table.increments('eat_id').primary()
         table.integer('amount')
         table.string('measurement')
-        table.dateTime('created_at')
+        table.dateTime('created_at').defaultTo(new Date().toISOString())
     })
 };
 

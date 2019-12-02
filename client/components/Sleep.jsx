@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addSleep } from '../actions'
+import { addSleep, deleteSleep } from '../actions'
 import ms from 'pretty-ms'
 import moment from 'moment'
 
@@ -41,8 +41,13 @@ export class Sleep extends React.Component {
         this.setState({
             time: 0, start: 0
         })
-
     }
+
+    handleDelete = (e) => {
+        this.props.dispatch(deleteSleep(e.target.value))
+    }
+
+
 
     render() {
         let start = (this.state.start == 0) ? <button type="button" className="btn btn-dark" onClick={this.startTimer}>Start</button> : null
@@ -72,7 +77,8 @@ export class Sleep extends React.Component {
                 <div className="pastSleep">
                     <h4>Past sleeps</h4>
                     <ul>{this.props.sleep ? this.props.sleep.map((sleep, i) => {
-                        return <li key={i}>Slept {sleep.duration} woke at {sleep.time_started.slice(11, 16)} {sleep.time_started.slice(0, 10)} {moment(Date.now()).format('YYYY-MM-DD')}</li>
+                        if (sleep.time_started.slice(0, 10) == moment(Date.now()).format('YYYY-MM-DD'))
+                            return <li key={i}>Slept {sleep.duration} woke at {sleep.time_started.slice(11, 16)}  <button value={sleep.sleep_id} onClick={this.handleDelete} className="btn-secondary">x</button></li>
                     }
                     ) : null} </ul>
                 </div>

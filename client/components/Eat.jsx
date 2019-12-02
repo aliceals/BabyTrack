@@ -16,7 +16,6 @@ export class Eat extends React.Component {
 
 
     handleChange = (e) => {
-        console.log(new Date())
         this.setState({
             [e.target.name]: e.target.value,
             date: new Date()
@@ -34,7 +33,6 @@ export class Eat extends React.Component {
     }
 
     handleDelete = (e) => {
-        console.log(e.target.value)
         this.props.dispatch(deleteEat(e.target.value))
     }
 

@@ -28,4 +28,15 @@ router.post('/', (req, res) => {
         })
 })
 
+router.post('/delete', (req, res) => {
+    db.deleteSleeps(req.body.sleepId)
+        .then(id => {
+            res.json({ id: id })
+        })
+        .catch(err => {
+            console.error(err)
+            res.status(500).json({ message: 'Something is broken' })
+        })
+})
+
 module.exports = router
