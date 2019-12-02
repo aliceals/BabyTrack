@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addNappy } from '../actions'
+import moment from 'moment'
 
 export class Nappy extends React.Component {
     constructor(props) {
@@ -19,8 +20,12 @@ export class Nappy extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        let nappyDetails = {
+            type: this.state.type,
+            time: moment(Date.now()).format('YYYY-MM-DD, h:mm:ss a')
+        }
         if (this.state.type) {
-            this.props.dispatch(addNappy(this.state))
+            this.props.dispatch(addNappy(nappyDetails))
         }
         this.setState({
             type: ""
