@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addNappy } from '../actions'
+import { addNappy, deleteNappy } from '../actions'
 import moment from 'moment'
 
 export class Nappy extends React.Component {
@@ -32,6 +32,10 @@ export class Nappy extends React.Component {
         })
     }
 
+    handleDelete = (e) => {
+        this.props.dispatch(deleteNappy(e.target.value))
+    }
+
     render() {
         return (
             <>
@@ -49,7 +53,7 @@ export class Nappy extends React.Component {
                         <h4>Past nappies</h4>
                         <ul>
                             {this.props.nappy ? this.props.nappy.map((nappy, i) => {
-                                return <li key={i}>{nappy.type} at {nappy.time.slice(11, 16)}</li>
+                                return <li key={i}>{nappy.type} at {nappy.time.slice(11, 16)} <button value={nappy.nappy_id} onClick={this.handleDelete} className="btn-secondary">x</button></li>
                             }) : null}
                         </ul>
                     </div>

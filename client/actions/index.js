@@ -1,5 +1,5 @@
 import { apiAddEat, apiGetEats, apiDeleteEats } from "../apis/eat"
-import { apiAddNappy, apiGetNappies } from "../apis/nappy"
+import { apiAddNappy, apiGetNappies, apiDeleteNappy } from "../apis/nappy"
 import { apiAddSleep, apiGetSleeps, apiDeleteSleeps } from '../apis/sleep'
 
 export const SET_EAT = 'SET_EAT'
@@ -94,6 +94,15 @@ export function deleteSleep(sleepId) {
         apiDeleteSleeps(sleepId)
             .then(() => {
                 dispatch(fetchSleeps())
+            })
+    }
+}
+
+export function deleteNappy(nappyId) {
+    return dispatch => {
+        apiDeleteNappy(nappyId)
+            .then(() => {
+                dispatch(fetchNappies())
             })
     }
 }

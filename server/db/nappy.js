@@ -12,7 +12,12 @@ function createNappy(nappy, db = database) {
         })
 }
 
+function deleteNappy(nappyId, db = database) {
+    return db('nappy').where('nappy_id', nappyId).del()
+}
+
 module.exports = {
     createNappy,
-    getNappies
+    getNappies,
+    deleteNappy
 }

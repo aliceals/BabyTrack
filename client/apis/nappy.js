@@ -16,3 +16,8 @@ export function apiGetNappies() {
 }
 
 
+export function apiDeleteNappy(nappyId) {
+    return request.post('/api/v1/nappy/delete')
+        .send({ nappyId: nappyId })
+        .then(res => res.body)
+}
