@@ -1,7 +1,7 @@
 import React from 'react'
 import { addEat, deleteEat } from '../actions'
 import { connect } from 'react-redux'
-import { moment } from 'moment'
+import moment from 'moment'
 
 export class Eat extends React.Component {
     constructor(props) {
@@ -10,23 +10,29 @@ export class Eat extends React.Component {
         this.state = {
             amount: '',
             measurement: 'mls',
-            dateTime: ''
+            time_started: ''
         }
+
     }
 
 
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value,
-            date: new Date()
+
         })
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
+        let eatDetails = {
+            amount: this.state.amount,
+            measurement: this.state.measurement,
+            time_started: moment(Date.now()).format('YYYY-MM-DD, h:mm:ss a')
+        }
 
         if (this.state.amount) {
-            this.props.dispatch(addEat(this.state))
+            this.props.dispatch(addEat(eatDetails))
             this.setState({ amount: '', measurement: 'mls' })
         }
 

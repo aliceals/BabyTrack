@@ -8,11 +8,12 @@ export function apiGetEats() {
 }
 
 export function apiAddEat(eat) {
+    console.log(eat)
     return request.post(endPoint)
         .send({
             amount: eat.amount,
             measurement: eat.measurement,
-            created_at: eat.dateTime
+            created_at: eat.time_started
         })
         .then(res => res.body)
 }

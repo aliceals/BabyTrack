@@ -15,7 +15,6 @@ export class Sleep extends React.Component {
             endTime: 0
         }
 
-        console.log(moment(Date.now()).format('YYYY-MM-DD, h:mm:ss a'))
     }
 
     startTimer = () => {

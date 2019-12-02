@@ -19,15 +19,8 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const eat = req.body
-    let time = new Date().toISOString()
 
-    const newEat = {
-        amount: req.body.amount,
-        measurement: req.body.measurement,
-        created_at: time
-    }
-
-    db.createEat(newEat)
+    db.createEat(eat)
         .then(id => {
             res.json({ id: id })
         })
