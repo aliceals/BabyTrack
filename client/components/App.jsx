@@ -12,12 +12,11 @@ import Sleep from './Sleep'
 import Nappy from './Nappy'
 import Nav from './Navbar'
 import Register from './Register'
-
+import Home from './Home'
 
 
 
 export class App extends React.Component {
-
 
     render() {
         return (
@@ -42,6 +41,9 @@ export class App extends React.Component {
                             <Route exact path="/" component={Nappy} />
                         </div>
                     </IfAuthenticated>
+                    <IfNotAuthenticated>
+                        <Route path="/" component={Home} />
+                    </IfNotAuthenticated>
                 </Router>
             </React.Fragment>
         )
