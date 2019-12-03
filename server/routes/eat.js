@@ -5,6 +5,7 @@ const db = require('../db/eat')
 
 
 
+
 router.get('/', (req, res) => {
     db.getEats()
         .then(eat => {
