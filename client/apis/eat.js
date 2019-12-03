@@ -1,15 +1,19 @@
 import request from 'superagent'
+import { getEncodedToken } from 'authenticare/client'
 
 const endPoint = '/api/v1/eat'
 
 export function apiGetEats() {
     return request.get(endPoint)
+        .set({ 'Accept': 'application/json' })
+        .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
         .then(res => res.body)
 }
 
 export function apiAddEat(eat) {
-    console.log(eat)
     return request.post(endPoint)
+        .set({ 'Accept': 'application/json' })
+        .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
         .send({
             amount: eat.amount,
             measurement: eat.measurement,
@@ -20,6 +24,8 @@ export function apiAddEat(eat) {
 
 export function apiDeleteEats(eatId) {
     return request.post('/api/v1/eat/delete')
+        .set({ 'Accept': 'application/json' })
+        .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
         .send({ eatId: eatId })
         .then(res => res.body)
 }

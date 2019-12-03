@@ -2,9 +2,10 @@ const express = require('express')
 const router = express.Router()
 
 const db = require('../db/nappy')
+const { getTokenDecoder } = require('authenticare/server')
+const tokenDecoder = getTokenDecoder(false)
 
-
-router.get('/', (req, res) => {
+router.get('/', tokenDecoder, async (req, res) => {
     db.getNappies()
         .then(nappy => {
             res.json(nappy)
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
 })
 
 
-router.post('/', (req, res) => {
+router.post('/', tokenDecoder, async (req, res) => {
     const nappy = req.body
     db.createNappy(nappy)
         .then(id => {
@@ -28,7 +29,7 @@ router.post('/', (req, res) => {
         })
 })
 
-router.post('/delete', (req, res) => {
+router.post('/delete', tokenDecoder, async (req, res) => {
     db.deleteNappy(req.body.nappyId)
         .then(id => {
             res.json({ id: id })

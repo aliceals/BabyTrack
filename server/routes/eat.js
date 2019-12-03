@@ -2,11 +2,10 @@ const express = require('express')
 const router = express.Router()
 const db = require('../db/eat')
 
+const { getTokenDecoder } = require('authenticare/server')
+const tokenDecoder = getTokenDecoder(false)
 
-
-
-
-router.get('/', (req, res) => {
+router.get('/', tokenDecoder, async (req, res) => {
     db.getEats()
         .then(eat => {
             res.json(eat)
@@ -18,7 +17,7 @@ router.get('/', (req, res) => {
 })
 
 
-router.post('/', (req, res) => {
+router.post('/', tokenDecoder, async (req, res) => {
     const eat = req.body
 
     db.createEat(eat)
@@ -32,7 +31,7 @@ router.post('/', (req, res) => {
 })
 
 
-router.post('/delete', (req, res) => {
+router.post('/delete', tokenDecoder, async (req, res) => {
     db.deleteEat(req.body.eatId)
         .then(id => {
             res.json({ id: id })
@@ -42,4 +41,6 @@ router.post('/delete', (req, res) => {
             res.status(500).json({ message: 'Something is broken' })
         })
 })
+
+
 module.exports = router
