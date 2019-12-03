@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { logOff } from 'authenticare/client'
 
-import { IfAuthenticated, IfNotAuthenticated } from './Authenicated'
+import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 
 const NavGroup = styled.div`
@@ -20,7 +20,7 @@ export default function Nav() {
             <NavGroup>
                 <NavLink to='/'>Home</NavLink>
                 <IfAuthenticated>
-                    <NavLink to='#' data-testid='logoff'
+                    <NavLink to='/signin' data-testid='logoff'
                         onClick={logOff}>Log off</NavLink>
                 </IfAuthenticated>
                 <IfNotAuthenticated>

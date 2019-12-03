@@ -28,6 +28,7 @@ export default function SignIn(props) {
             .then((token) => {
                 if (isAuthenticated()) {
                     props.history.push('/')
+                    document.location.reload()
                 }
             })
     }

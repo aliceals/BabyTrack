@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import { addSleep, deleteSleep } from '../actions'
 import ms from 'pretty-ms'
 import moment from 'moment'
+import { fetchSleeps } from '../actions'
+
+
 
 export class Sleep extends React.Component {
     constructor(props) {
@@ -15,6 +18,10 @@ export class Sleep extends React.Component {
             endTime: 0
         }
 
+    }
+
+    componentDidMount() {
+        this.props.dispatch(fetchSleeps())
     }
 
     startTimer = () => {
@@ -88,7 +95,6 @@ export class Sleep extends React.Component {
                     ) : null} </ul>
                 </div>
             </div>
-
         )
     }
 }

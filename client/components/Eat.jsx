@@ -2,6 +2,9 @@ import React from 'react'
 import { addEat, deleteEat } from '../actions'
 import { connect } from 'react-redux'
 import moment from 'moment'
+import { fetchEats } from '../actions'
+
+import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 export class Eat extends React.Component {
     constructor(props) {
@@ -13,6 +16,11 @@ export class Eat extends React.Component {
             time_started: ''
         }
 
+    }
+
+
+    componentDidMount() {
+        this.props.dispatch(fetchEats())
     }
 
 
@@ -45,7 +53,7 @@ export class Eat extends React.Component {
     render() {
 
 
-        return (
+        return (<IfAuthenticated>
             <div className="eat">
                 <div className="newEat">
                     <h3> Eat 🍼</h3>
@@ -74,6 +82,7 @@ export class Eat extends React.Component {
                     : null
                 }</ul>
             </div >
+        </IfAuthenticated>
         )
     }
 }

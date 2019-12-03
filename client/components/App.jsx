@@ -2,6 +2,8 @@ import React from 'react'
 import { fetchEats, fetchNappies, fetchSleeps } from '../actions'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
+import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
+
 import SignIn from './SignIn'
 import { connect } from 'react-redux'
 
@@ -11,12 +13,10 @@ import Nappy from './Nappy'
 import Nav from './Navbar'
 import Register from './Register'
 
+
+
+
 export class App extends React.Component {
-    componentDidMount() {
-        this.props.dispatch(fetchEats())
-        this.props.dispatch(fetchNappies())
-        this.props.dispatch(fetchSleeps())
-    }
 
 
     render() {
@@ -26,20 +26,22 @@ export class App extends React.Component {
                     <Route exact path='/signin' component={SignIn} />
                     <Route path="/register" component={Register} />
                     <Route path='/' component={Nav} />
-                    <div className="container-fluid">
-                        <div className='jumbotron'>
-                            <div className="containerforJumbo">
-                                <h1 className="display-4">Baby Tracker</h1>
-                                <p className="summary">Record your babies sleep, nappies and eating habits</p>
+                    <IfAuthenticated>
+                        <div className="container-fluid">
+                            <div className='jumbotron'>
+                                <div className="containerforJumbo">
+                                    <h1 className="display-4">Baby Tracker</h1>
+                                    <p className="summary">Record your babies sleep, nappies and eating habits</p>
+                                </div>
+                                <img className="mainImage" src="/images/baby2.png" />
                             </div>
-                            <img className="mainImage" src="/images/baby2.png" />
                         </div>
-                    </div>
-                    <div className="container">
-                        <Eat />
-                        <Sleep />
-                        <Nappy />
-                    </div>
+                        <div className="container">
+                            <Route exact path="/" component={Eat} />
+                            <Route exact path="/" component={Sleep} />
+                            <Route exact path="/" component={Nappy} />
+                        </div>
+                    </IfAuthenticated>
                 </Router>
             </React.Fragment>
         )

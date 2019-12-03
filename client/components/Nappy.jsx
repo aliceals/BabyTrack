@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addNappy, deleteNappy } from '../actions'
 import moment from 'moment'
+import { fetchNappies } from '../actions'
+
+
 
 export class Nappy extends React.Component {
     constructor(props) {
@@ -10,6 +13,10 @@ export class Nappy extends React.Component {
         this.state = {
             type: ""
         }
+    }
+
+    componentDidMount() {
+        this.props.dispatch(fetchNappies())
     }
 
     handleChange = (e) => {
