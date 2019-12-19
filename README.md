@@ -3,7 +3,7 @@ App to track baby sleep, eat and nappies
 
 Current WIP for personal project. 
 
-##To do 
+To do 
 Testing 
 Bug fixes
 Stretch goals - progress bar and goal for sleep timer
