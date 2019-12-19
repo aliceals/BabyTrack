@@ -90,7 +90,7 @@ export class Sleep extends React.Component {
                     <h4>Sleeps today</h4>
                     <ul>{this.props.sleep ? this.props.sleep.map((sleep, i) => {
                         if (sleep.time_started.slice(0, 10) == moment(Date.now()).format('YYYY-MM-DD'))
-                            return <li key={i}>Slept {sleep.duration} woke at {sleep.time_started.slice(11, 16)}  <button value={sleep.sleep_id} onClick={this.handleDelete} className="btn-secondary">x</button></li>
+                            return <li key={i}>Slept {sleep.duration} woke at {sleep.time_started.slice(11, 17)}  <button value={sleep.sleep_id} onClick={this.handleDelete} className="btn-secondary">x</button></li>
                     }
                     ) : null} </ul>
                 </div>

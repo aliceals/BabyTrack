@@ -22,8 +22,6 @@ export class App extends React.Component {
         return (
             <React.Fragment>
                 <Router>
-                    <Route exact path='/signin' component={SignIn} />
-                    <Route path="/register" component={Register} />
                     <Route path='/' component={Nav} />
                     <IfAuthenticated>
                         <div className="container-fluid">
@@ -43,6 +41,8 @@ export class App extends React.Component {
                     </IfAuthenticated>
                     <IfNotAuthenticated>
                         <Route path="/" component={Home} />
+                        <Route exact path='/signin' component={SignIn} />
+                        <Route path="/register" component={Register} />
                     </IfNotAuthenticated>
                 </Router>
             </React.Fragment>

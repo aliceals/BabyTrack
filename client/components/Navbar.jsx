@@ -14,21 +14,26 @@ const NavLink = styled(Link)`
   margin-right: 30px;
 `
 
-export default function Nav() {
-    return (
-        <React.Fragment>
-            <NavGroup>
-                <NavLink to='/'>Home</NavLink>
-                <IfAuthenticated>
-                    <NavLink to='/signin' data-testid='logoff'
-                        onClick={logOff}>Log off</NavLink>
-                </IfAuthenticated>
-                <IfNotAuthenticated>
-                    <NavLink to='/register' data-testid='register'>Register</NavLink>
-                    <NavLink to='/signin' data-testid='signin'>Sign in</NavLink>
-                </IfNotAuthenticated>
-            </NavGroup>
-            <h1>Baby Tracker</h1>
-        </React.Fragment>
-    )
+
+export class Nav extends React.Component {
+
+    render() {
+        return (
+            <React.Fragment>
+                <NavGroup>
+                    <IfAuthenticated>
+                        <NavLink to='/signin' data-testid='logoff'
+                            onClick={logOff}>Log off</NavLink>
+                    </IfAuthenticated>
+                    <IfNotAuthenticated>
+                        <NavLink to='/register' data-testid='register'>Register</NavLink>
+                        <NavLink to='/signin' data-testid='signin'>Sign in</NavLink>
+                    </IfNotAuthenticated>
+                </NavGroup>
+                <h4>Baby Tracker</h4>
+            </React.Fragment>
+        )
+    }
 }
+
+export default Nav

@@ -57,11 +57,11 @@ export class Nappy extends React.Component {
                         <button type="button" className="btn btn-success" onClick={this.handleSubmit}>Submit</button>
                     </div>
                     <div className="nappyPast">
-                        <h4>Past nappies</h4>
+                        <h4>Nappies today</h4>
                         <ul>
                             {this.props.nappy ? this.props.nappy.map((nappy, i) => {
                                 if (nappy.time.slice(0, 10) == moment(Date.now()).format('YYYY-MM-DD')) {
-                                    return <li key={i}>{nappy.type} at {nappy.time.slice(11, 16)} <button value={nappy.nappy_id} onClick={this.handleDelete} className="btn-secondary">x</button></li>
+                                    return <li key={i}>{nappy.type} at {nappy.time.slice(11, 17)} <button value={nappy.nappy_id} onClick={this.handleDelete} className="btn-secondary">x</button></li>
                                 }
                             }) : null}
                         </ul>
