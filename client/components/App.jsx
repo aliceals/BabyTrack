@@ -39,11 +39,10 @@ export class App extends React.Component {
                             <Route exact path="/" component={Nappy} />
                         </div>
                     </IfAuthenticated>
-                    <IfNotAuthenticated>
-                        <Route path="/" component={Home} />
-                        <Route exact path='/signin' component={SignIn} />
-                        <Route path="/register" component={Register} />
-                    </IfNotAuthenticated>
+                    {/* <Route path="/" component={Home} /> */}
+                    <Route exact path='/signin' component={SignIn} />
+                    <Route path="/register" component={Register} />
+
                 </Router>
             </React.Fragment>
         )
