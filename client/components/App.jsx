@@ -38,6 +38,7 @@ export class App extends React.Component {
                             <Route exact path="/" component={Sleep} />
                             <Route exact path="/" component={Nappy} />
                         </div>
+                        <a class="github-fork-ribbon" href="https://github.com/aliceals/BookEm-react" data-ribbon="View code on GitHub" title="View code on GitHub">View code on GitHub</a>
                     </IfAuthenticated>
                     {/* <Route path="/" component={Home} /> */}
                     <Route exact path='/signin' component={SignIn} />
