@@ -6,6 +6,7 @@ Current WIP for personal project.
 ## To do 
 - Testing 
 - Bug fixes
+- get auth working
 - Need to add into database based on username as currently all results go under the same user
 Stretch goals - 
 progress bar and goal for sleep timer
