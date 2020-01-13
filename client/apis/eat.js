@@ -13,7 +13,7 @@ export function apiGetEats() {
 export function apiAddEat(eat) {
     return request.post(endPoint)
         .set({ 'Accept': 'application/json' })
-        .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
+        // .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
         .send({
             amount: eat.amount,
             measurement: eat.measurement,

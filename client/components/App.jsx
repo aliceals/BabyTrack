@@ -22,24 +22,24 @@ export class App extends React.Component {
         return (
             <React.Fragment>
                 <Router>
-                    <Route path='/' component={Nav} />
-                    <IfAuthenticated>
-                        <div className="container-fluid">
-                            <div className='jumbotron'>
-                                <div className="containerforJumbo">
-                                    <h1 className="display-4">Baby Tracker</h1>
-                                    <p className="summary">Record your babies sleep, nappies and eating habits</p>
-                                </div>
-                                <img className="mainImage" src="/images/baby2.png" />
+                    {/* <Route path='/' component={Nav} /> */}
+                    {/* <IfAuthenticated> */}
+                    <div className="container-fluid">
+                        <div className='jumbotron'>
+                            <div className="containerforJumbo">
+                                <h1 className="display-4">Baby Tracker</h1>
+                                <p className="summary">Record your babies sleep, nappies and eating habits</p>
                             </div>
+                            <img className="mainImage" src="/images/baby2.png" />
                         </div>
-                        <div className="container">
-                            <Route exact path="/" component={Eat} />
-                            <Route exact path="/" component={Sleep} />
-                            <Route exact path="/" component={Nappy} />
-                        </div>
-                        <a class="github-fork-ribbon" href="https://github.com/aliceals/BookEm-react" data-ribbon="View code on GitHub" title="View code on GitHub">View code on GitHub</a>
-                    </IfAuthenticated>
+                    </div>
+                    <div className="container">
+                        <Route exact path="/" component={Eat} />
+                        <Route exact path="/" component={Sleep} />
+                        <Route exact path="/" component={Nappy} />
+                    </div>
+                    <a class="github-fork-ribbon" href="https://github.com/aliceals/BabyTrack" data-ribbon="View code on GitHub" title="View code on GitHub">View code on GitHub</a>
+                    {/* </IfAuthenticated> */}
                     {/* <Route path="/" component={Home} /> */}
                     <Route exact path='/signin' component={SignIn} />
                     <Route path="/register" component={Register} />

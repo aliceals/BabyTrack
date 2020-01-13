@@ -1,10 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../db/sleep')
-const { getTokenDecoder } = require('authenticare/server')
-const tokenDecoder = getTokenDecoder(false)
 
-router.get('/', tokenDecoder, async (req, res) => {
+router.get('/', (req, res) => {
     db.getSleeps()
         .then(sleep => {
             res.json(sleep)
@@ -16,7 +14,7 @@ router.get('/', tokenDecoder, async (req, res) => {
 })
 
 
-router.post('/', tokenDecoder, async (req, res) => {
+router.post('/', (req, res) => {
     const sleep = req.body
     db.createSleep(sleep)
         .then(id => {
@@ -28,7 +26,7 @@ router.post('/', tokenDecoder, async (req, res) => {
         })
 })
 
-router.post('/delete', tokenDecoder, async (req, res) => {
+router.post('/delete', (req, res) => {
     db.deleteSleeps(req.body.sleepId)
         .then(id => {
             res.json({ id: id })
@@ -38,5 +36,43 @@ router.post('/delete', tokenDecoder, async (req, res) => {
             res.status(500).json({ message: 'Something is broken' })
         })
 })
+
+// const { getTokenDecoder } = require('authenticare/server')
+// const tokenDecoder = getTokenDecoder(false)
+
+// router.get('/', tokenDecoder, async (req, res) => {
+//     db.getSleeps()
+//         .then(sleep => {
+//             res.json(sleep)
+//         })
+//         .catch(err => {
+//             console.log(err)
+//             res.status(500).json({ message: 'Something is broken' })
+//         })
+// })
+
+
+// router.post('/', tokenDecoder, async (req, res) => {
+//     const sleep = req.body
+//     db.createSleep(sleep)
+//         .then(id => {
+//             res.json({ id: id })
+//         })
+//         .catch(err => {
+//             console.error(err)
+//             res.status(500).json({ message: 'Something is broken' })
+//         })
+// })
+
+// router.post('/delete', tokenDecoder, async (req, res) => {
+//     db.deleteSleeps(req.body.sleepId)
+//         .then(id => {
+//             res.json({ id: id })
+//         })
+//         .catch(err => {
+//             console.error(err)
+//             res.status(500).json({ message: 'Something is broken' })
+//         })
+// })
 
 module.exports = router
