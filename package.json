@@ -7,7 +7,7 @@
     "dev": "run-p dev:server dev:client",
     "dev:server": "nodemon server",
     "dev:client": "webpack --watch",
-    "postinstall": "webpack && knex migrate:latest",
+    "postinstall": "webpack && knex migrate:latest"
   },
   "keywords": [],
   "author": "",
