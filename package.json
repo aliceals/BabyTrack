@@ -39,7 +39,7 @@
     "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jest": "^24.9.0",
     "knex": "^0.20.2",
     "moment": "^2.24.0",
